@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
+<head>
+
+</head>
 <body>
-<h1>blocmetrics Example Client</h1>
-<button onclick="sendClick()">click me</button>
+<h1>Blocmetrics Example Client</h1>
+<p><button onclick="sendClick('new_user')">New User</button></p>
+<p><button onclick="sendClick('new_application')">New Application</button></p>
+<p><button onclick="sendClick('password_reset')">Reset Password</button></p>
+<p><button onclick="sendClick('cancel_membership')">Cancel Membership</button></p>
 <script>
 
-function sendClick(){
-  var event = { event: {name: "click"} };
+function sendClick(event_type){
+  var event = { event: {name: event_type} };
   var request = new XMLHttpRequest(); 
   request.open("POST", "http://localhost:3000/api/events", true); 
   request.setRequestHeader('Content-Type', 'application/json'); 
